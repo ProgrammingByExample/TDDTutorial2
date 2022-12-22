@@ -17,8 +17,15 @@ namespace TestApplication
 
         public int GetBalanceForSingleAccount(int accountId) 
         {
+            int returnBalance = 0;
+
             IAccount account = accountData.GetAccount(accountId);
-            return account.Balance;
+            if (account != null)
+            {
+                returnBalance = account.Balance;
+            }
+
+            return returnBalance;
         }
     }
 }

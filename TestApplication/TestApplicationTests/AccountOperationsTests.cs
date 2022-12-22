@@ -64,5 +64,26 @@ namespace TestApplicationTests
             // Assert
             Assert.AreEqual(expectedBalance, actualBalance);
         }
+
+        [TestMethod]
+        public void GetBalanceForSingleAccount_ReturnsZero_WhenThereIsNoAccountFoundTest()
+        {
+            int accountNumber = 12345;
+            int expectedBalance = 0;
+
+            // Arrange
+            IAccount nullAccount = null;
+
+            var mockDatabase = new Mock<IAccountData>();
+            mockDatabase.Setup(x => x.GetAccount(accountNumber)).Returns(nullAccount);
+
+            var testingClass = new AccountOperations(mockDatabase.Object);
+
+            // Act
+            int actualBalance = testingClass.GetBalanceForSingleAccount(accountNumber);
+
+            // Assert
+            Assert.AreEqual(expectedBalance, actualBalance);
+        }
     }
 }
