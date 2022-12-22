@@ -72,10 +72,9 @@ namespace TestApplicationTests
             int expectedBalance = 0;
 
             // Arrange
-            IAccount nullAccount = null;
-
             var mockDatabase = new Mock<IAccountData>();
-            mockDatabase.Setup(x => x.GetAccount(accountNumber)).Returns(nullAccount);
+            mockDatabase.Setup(x => x.GetAccount(accountNumber))
+                .Throws(new KeyNotFoundException());
 
             var testingClass = new AccountOperations(mockDatabase.Object);
 
