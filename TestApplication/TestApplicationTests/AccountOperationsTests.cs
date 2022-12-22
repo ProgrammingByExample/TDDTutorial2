@@ -29,11 +29,11 @@ namespace TestApplicationTests
             int expectedBalance = 420;
 
             // Arrange
-            var mockAccount = new Mock<IAccount>();
-            mockAccount.Setup(x => x.Balance).Returns(expectedBalance);
+            IAccount mockAccount = new Account();
+            mockAccount.Balance = expectedBalance;
 
             var mockDatabase = new Mock<IAccountData>();
-            mockDatabase.Setup(x => x.GetAccount(accountNumber)).Returns(mockAccount.Object);
+            mockDatabase.Setup(x => x.GetAccount(accountNumber)).Returns(mockAccount);
 
             var testingClass = new AccountOperations(mockDatabase.Object);
 
@@ -51,10 +51,10 @@ namespace TestApplicationTests
             int expectedBalance = 0;
 
             // Arrange
-            var mockAccount = new Mock<IAccount>();
+            IAccount mockAccount = new Account();
 
             var mockDatabase = new Mock<IAccountData>();
-            mockDatabase.Setup(x => x.GetAccount(accountNumber)).Returns(mockAccount.Object);
+            mockDatabase.Setup(x => x.GetAccount(accountNumber)).Returns(mockAccount);
 
             var testingClass = new AccountOperations(mockDatabase.Object);
 
