@@ -25,7 +25,11 @@ namespace TestApplication
         public IAccount GetAccount(int accountNumber)
         {
             IAccount retrivedAccount = null;
-            storedAccounts.TryGetValue(accountNumber, out retrivedAccount);
+            if (!storedAccounts.TryGetValue(accountNumber, out retrivedAccount))
+            {
+                throw new KeyNotFoundException
+                    ($"{typeof(AccountDatabase)}: Account not found: {accountNumber}");
+            }
 
             return retrivedAccount;
         }
