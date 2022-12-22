@@ -9,7 +9,7 @@ namespace TestApplication
     /// <summary>
     /// Bank account for a given user.
     /// </summary>
-    public class Account
+    public class Account : IAccount
     {
         /// <summary>
         /// Balance for the account. Is kept in check by <see cref="Overdraft"/>

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="AccountDatabase.cs" />
     <Compile Include="AccountOperations.cs" />
     <Compile Include="API\IAccount.cs" />
     <Compile Include="API\IAccountData.cs" />
