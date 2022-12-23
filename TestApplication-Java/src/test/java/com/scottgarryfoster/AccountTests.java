@@ -1,3 +1,5 @@
+package com.scottgarryfoster;
+
 import com.scottgarryfoster.*;
 import org.junit.jupiter.api.Test;
 

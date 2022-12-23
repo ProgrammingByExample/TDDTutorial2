@@ -1,3 +1,5 @@
+package com.scottgarryfoster;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
